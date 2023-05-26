@@ -1,14 +1,28 @@
-#include<stdio.h>
+#include <stdio.h>
 
-int main() 
-{
-    printf("Servus! \n");
-    // https://stackoverflow.com/questions/44366392/send-message-through-ring-circular-buffer-between-threads-in-c
-    // https://stackoverflow.com/questions/215557/how-do-i-implement-a-circular-list-ring-buffer-in-c
-    // https://github.com/dhess/c-ringbuf/blob/master/ringbuf.c
-    // https://github.com/bo-yang/shm_ring_buffer/tree/master
-    // https://github.com/filipecalasans/ringbuffer
-    // https://stackoverflow.com/questions/64759225/how-to-map-shared-memory-to-the-same-address-in-different-processes
-    // https://gist.github.com/aleksas/64521cec1b5fa05477a47f46ad62f8b5
-    return 0;
+// function declaration
+void add10(int *);
+
+int main(void) {
+    
+  // integer variable
+  int num = 30;
+  
+  // print value of num
+  printf("Value of num before function call: %d\n", num);
+  
+  // pass by reference
+  add10(num);
+  printf("%d\n",&num);
+  // print value of num
+  printf("Value of num after function call: %d\n", num);
+  
+  return 0;
+}
+
+// function definition
+void add10(int *n) {
+    printf("no *: %d",n);
+  *n = *n + 10;
+  printf("Inside add10(): Value %d\n", *n);
 }
